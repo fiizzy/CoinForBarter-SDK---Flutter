@@ -22,6 +22,8 @@ class MyStyles {
   static Color darkGrey = Color(0xff0F0F0F);
   static Color active = Color(0xffBCFFC3);
   static Color gold = Color(0xffE9BE00);
+  static Color listeningColor = Color(0xffB3B2FF);
+  static Color faintRed = Color(0xffFFA9A9);
 
   //Headers
   static TextStyle headerOne = TextStyle(
