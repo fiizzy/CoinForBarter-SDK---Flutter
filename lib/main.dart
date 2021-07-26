@@ -1,3 +1,5 @@
+import 'package:coinforbarter_flutter_sdk/models/config.dart';
+import 'package:coinforbarter_flutter_sdk/services/service.dart';
 import 'package:coinforbarter_flutter_sdk/styles/style.dart';
 import 'package:coinforbarter_flutter_sdk/views/paymentPreview/paymentPreview.dart';
 import 'package:coinforbarter_flutter_sdk/views/selectCurrency/selectCurrency.dart';
@@ -38,6 +40,10 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  //Test Data
+  PaymentConfig _paymentConfig = PaymentConfig();
+  PostDataToAPI _postService = PostDataToAPI();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -49,10 +55,20 @@ class _MyHomePageState extends State<MyHomePage> {
           children: [
             Center(
                 child: CustomButton(
-              route: '/selectCurrency',
+              config: _paymentConfig,
+              onPressed: () async {
+                var message = await _postService.postData(_paymentConfig);
+                if (message['message'] == 'Unauthorized') {
+                  print('Well, it is unathorized');
+                } else {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => SelectCurrency()),
+                  );
+                }
+              },
             )),
             MyStyles.verticalSpaceZero,
-            CustomButton(route: '/selectCurrency'),
           ],
         ));
   }

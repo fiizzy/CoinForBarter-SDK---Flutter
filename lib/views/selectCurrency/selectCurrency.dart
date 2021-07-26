@@ -46,7 +46,7 @@ class _SelectCurrencyState extends State<SelectCurrency> {
                   child: CustomButton(
                     color: MyStyles.gold,
                     textColor: MyStyles.primaryPurple,
-                    route: '/paymentPreview',
+                    // route: '/paymentPreview',
                   ))
             ],
           ),

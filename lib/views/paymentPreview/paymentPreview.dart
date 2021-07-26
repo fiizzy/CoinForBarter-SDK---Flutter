@@ -2,7 +2,6 @@ import 'package:coinforbarter_flutter_sdk/styles/style.dart';
 import 'package:coinforbarter_flutter_sdk/views/paymentPreview/addressDetails.dart';
 import 'package:coinforbarter_flutter_sdk/views/selectCurrency/productCard.dart';
 import 'package:coinforbarter_flutter_sdk/views/selectCurrency/securedByCoinForBarter.dart';
-import 'package:coinforbarter_flutter_sdk/widgets/button.dart';
 import 'package:flutter/material.dart';
 
 class PaymentPreview extends StatefulWidget {
@@ -36,6 +35,20 @@ class _PaymentPreviewState extends State<PaymentPreview> {
                     textAlign: TextAlign.left,
                   ),
                   MyStyles.verticalSpaceOne,
+                  Card(
+                      color: MyStyles.gold,
+                      child: Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Wrap(
+                          alignment: WrapAlignment.center,
+                          direction: Axis.horizontal,
+                          children: [
+                            Text('1:20:23s Remaining',
+                                style: MyStyles.bodyText),
+                            MyStyles.horizontalSpaceZero,
+                          ],
+                        ),
+                      )),
                   AddressDetails()
                 ],
               ),

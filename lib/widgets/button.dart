@@ -1,23 +1,14 @@
 import 'package:coinforbarter_flutter_sdk/styles/style.dart';
+import 'package:coinforbarter_flutter_sdk/models/config.dart';
 import 'package:flutter/material.dart';
 
 class CustomButton extends StatelessWidget {
-  Function? function;
-  String? argOne;
-  String? argTwo;
-  String? argThree;
-  Color? color;
-  Color? textColor;
-  String? route;
+  final Color? color;
+  final Color? textColor;
+  final PaymentConfig? config;
+  void Function()? onPressed;
 
-  CustomButton(
-      {this.argOne,
-      this.argThree,
-      this.argTwo,
-      this.function,
-      this.color,
-      this.textColor,
-      required this.route});
+  CustomButton({this.color, this.textColor, this.config, this.onPressed});
 
   @override
   Widget build(BuildContext context) {
@@ -25,9 +16,7 @@ class CustomButton extends StatelessWidget {
         style: ButtonStyle(
           padding: MaterialStateProperty.all(EdgeInsets.zero),
         ),
-        onPressed: () {
-          Navigator.pushNamed(context, route!);
-        },
+        onPressed: onPressed,
         child: Container(
           color: color,
           width: MediaQuery.of(context).size.width * .8,
